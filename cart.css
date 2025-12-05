@@ -1,19 +1,25 @@
 
-body {
-    margin: 0;
-    padding: 0;
-    max-width: 100%;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
-    line-height: 1.4;
+*
+{
     box-sizing: border-box;
-
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+}
 
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
 .cart-menu {
-
     background-color: #BE1622;
     color: #ffffff;
     width: 100%;
@@ -21,7 +27,6 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .cart-menu a {
@@ -29,71 +34,51 @@ body {
     text-decoration: none;
 }
 
-
-.img-logo{
-    margin-left: -20px;
-    margin-top: -20px;
-    display: flex;
+.img-logo {
     width: 180px;
 }
+
 .logo {
-    margin: 0;
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-
-
-
 .nav-panel {
     display: flex;
     gap: 20px;
-    margin-right: 100px;
 }
-
 
 .nav-panel a {
     padding: 20px 0;
 }
 
-.nav-panel a:hover {
-    border-bottom: 3px solid #F2BE1A;
-}
+.nav-panel a:hover,
 .nav-panel .current {
     border-bottom: 3px solid #F2BE1A;
 }
 
 
 
-.content {
-
-    flex-grow: 1;
-    padding: 32px 60px;
-    max-width: 1200px;
-    width: 100%;
-    margin: 0 auto;
-}
-
+/* Footer  */
 .footer {
     background-color: #34516C;
     color: #ffffff;
     width: 100%;
-    box-sizing: border-box;
-    padding: 20px;
+    padding: 20px 40px;
     display: grid;
-    grid-template-columns: auto auto auto;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 45px;
 }
 
-
 .footer h4 {
-    /* Gold Accent Color */
     color: #ffffff;
     margin-bottom: 16px;
     font-size: 20px;
 }
-.footer p, .footer a {
+
+.footer p,
+.footer a {
     font-size: 14px;
     color: #ffffff;
     text-decoration: none;
@@ -102,19 +87,24 @@ body {
     line-height: 1.2;
 }
 
+/* Responsive  */
 @media (max-width: 768px) {
-    .homepage-menu {
+
+    .cart-menu {
         flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
     }
+
+    .nav-panel {
+        margin-top: 8px;
+    }
+
+
 
     .footer {
-
-        margin-left: 0;
-        margin-right: 0;
         padding: 20px;
-        row-gap: 20px;
         grid-template-columns: 1fr;
+        row-gap: 2px;
     }
-
-
 }
