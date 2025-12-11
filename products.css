@@ -58,6 +58,15 @@ body {
     border-bottom: 3px solid #F2BE1A;
 }
 
+.title{
+    justify-content: center;
+    display: flex;
+    font-size: 2rem;
+
+
+}
+
+
 
 
 /* Footer  */
@@ -107,4 +116,10 @@ body {
         grid-template-columns: 1fr;
         row-gap: 2px;
     }
+    .title{
+        font-size: 1.2rem;
+
+
+    }
+
 }
