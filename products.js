@@ -113,3 +113,16 @@ window.addEventListener("scroll", () => {
 topButton.addEventListener("click", () => {
     window.scrollTo({ top: 0});
 });
+
+
+productsArrayElement.addEventListener("click", (event) => {
+    const productLink= event.target.closest(".product-more");
+    if(!productLink) return;
+
+    const productId = new URL(productLink.href).searchParams.get("id");
+
+    const chosenProduct = allProducts.find(product => product.id === productId);
+    if(chosenProduct){
+        sessionStorage.setItem("chosenProduct", JSON.stringify(chosenProduct));
+    }
+});
