@@ -65,6 +65,25 @@ body {
 
 }
 
+
+#go-to-top {
+    position: fixed;
+    left: 60px;
+    top: 50%;
+    width: 90px;
+    height: 90px;
+    border-radius: 60%;
+    background-color: #34516C;
+    color: #ffffff;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: none;
+
+}
+
+#go-to-top:hover {
+    background-color: #BE1622;
+}
 .product-categories {
     max-width: 360px;
     margin: 0 auto 20px;
@@ -77,12 +96,14 @@ body {
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    border-radius: 5px;
 }
 .category:hover{
     background-color: #F2BE1A;
 }
 
 .current-category{
+    border-radius: 5px;
     padding: 3px 10px;
     font-size: 1rem;
     font-weight: bold;

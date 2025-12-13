@@ -98,3 +98,18 @@ document.getElementById("filter-tshirts").onclick = () => {
     changeCurrentCategory(document.getElementById("filter-tshirts"));
 };
 
+
+
+const topButton = document.getElementById("go-to-top");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 100) {
+        topButton.style.display = "block";
+    } else {
+        topButton.style.display = "none";
+    }
+});
+
+topButton.addEventListener("click", () => {
+    window.scrollTo({ top: 0});
+});
