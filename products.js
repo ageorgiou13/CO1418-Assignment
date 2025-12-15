@@ -40,6 +40,36 @@ const tshirts = createProducts(
 // combining the 3 product arrays into 1
 const allProducts = [...hoodies, ...jumpers, ...tshirts];
 
+function getCart(){
+    const storedProducts = localStorage.getItem("cart");
+    return storedProducts ? JSON.parse(storedProducts) : [];
+}
+
+function saveCart(cart){
+    localStorage.setItem("cart", JSON.stringify(cart));
+}
+
+function addToCart(product){
+    const cart= getCart();
+
+    const inCart = cart.find(item => item.id === product.id);
+    if(inCart){
+        inCart.quantity += 1;
+
+    }
+    else{
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: product.price,
+            image: product.image,
+            quantity: 1
+        });
+    }
+    saveCart(cart);
+}
+
+
 const productsArrayElement = document.getElementById("product-list");
 
 function showProducts(productsArray){
@@ -98,7 +128,18 @@ document.getElementById("filter-tshirts").onclick = () => {
     changeCurrentCategory(document.getElementById("filter-tshirts"));
 };
 
+productsArrayElement.addEventListener("click", event => {
+    const buttonBuy = event.target.closest("button");
+   if(buttonBuy.textContent.trim() !== "Buy") return;
 
+   const card = buttonBuy.closest(".productCard");
+   const nameElement = card.querySelector(".product-name");
+
+   const product = allProducts.find(product => product.name === nameElement.textContent.trim());
+   if (product){
+       addToCart(product);
+   }
+});
 
 const topButton = document.getElementById("go-to-top");
 
