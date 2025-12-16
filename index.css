@@ -1,8 +1,14 @@
-
+/*
+ making all elements to use border box so the padding and borders are included in width or height
+ */
 *
 {
     box-sizing: border-box;
 }
+
+/* style for the whole page
+
+ */
 
 html, body {
     margin: 0;
@@ -12,68 +18,85 @@ html, body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
 }
-
+/* using flex collumn on body so header  main content and footer appear vertically */
 body {
     display: flex;
     flex-direction: column;
 }
 
-/* Header */
+/* Header and navigation bar */
 .homepage-menu {
-    background-color: #BE1622;
+    background-color: #BE1622; /* uclan red color */
     color: #ffffff;
     width: 100%;
     padding: 16px 20px;
-    display: flex;
+    display: flex;      /* elements to be displayed side by side */
     justify-content: space-between;
     align-items: center;
 }
 
+/*
+ navigation links , removed the underline and changed color to white
+ */
 .homepage-menu a {
     color: #ffffff;
     text-decoration: none;
 }
-
+/* logo size */
 .img-logo {
     width: 180px;
 }
-
+/*
+for logo img , title and menu horizontal gap
+ */
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
+/*
+gap between nav links
+ */
 .nav-panel {
     display: flex;
     gap: 20px;
 }
-
+/*
+added some vertical padding to nav links to be easier to click
+ */
 .nav-panel a {
     padding: 20px 0;
 }
-
+/*
+on hover i added a bottom border line to appear and the current page also has a bottom border gold color
+ */
 .nav-panel a:hover,
 .nav-panel .current {
     border-bottom: 3px solid #F2BE1A;
 }
 
 
-
+/*
+main welcome title
+ */
 .welcome-title {
     margin: 0 0 24px;
     text-align: center;
     color: #007EB0;
     font-size: 2rem;
 }
-
+/*
+intro text paragraphs
+ */
 .welcome-text {
     max-width: 800px;
     margin: 0 auto 6px;
     font-size: 1.1rem;
     text-align: left;
 }
-
+/*
+ title above each video gold colored
+ */
 .highlighted-text {
     max-width: 900px;
     margin: 32px auto 16px;
@@ -81,7 +104,7 @@ body {
     color: #F2BE1A;
 }
 
-/* Videos both */
+/* Videos both share the style  */
 .video {
     display: block;
     width: 100%;
@@ -90,7 +113,7 @@ body {
     aspect-ratio: 16 / 9;
 }
 
-/* Footer  */
+/* Footer, dark blue background color, grid display to be in 3 equal columns */
 .footer {
     background-color: #34516C;
     color: #ffffff;
@@ -100,13 +123,15 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 45px;
 }
-
+/* footer section titles */
 .footer h4 {
     color: #ffffff;
     margin-bottom: 16px;
     font-size: 20px;
 }
-
+/*
+ footer text and link
+ */
 .footer p,
 .footer a {
     font-size: 14px;
@@ -117,46 +142,84 @@ body {
     line-height: 1.2;
 }
 
-/* Responsive  */
+/* responsive layout  */
 @media (max-width: 768px) {
 
+/*
+make logo and navigation to go vertical
+ */
     .homepage-menu {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-
+/*
+hide nav links , they will be visible by opening hamburger menu
+ */
     .nav-panel {
         margin-top: 8px;
+        display: none;
+        flex-direction: column;
     }
-
+/*
+adding side padding to main content
+ */
     .content {
         margin: 24px auto 40px;
         padding: 0 16px;
     }
-
+/*
+ reduce font size
+ */
     .welcome-title {
         font-size: 1.3rem;
     }
-
+    /*
+     reduce font size
+     */
     .welcome-text {
         max-width: 100%;
         font-size: 0.85rem;
     }
-
+    /*
+     reduce font size
+     */
     .highlighted-text {
         max-width: 100%;
         font-size: 1rem;
     }
-
+/* video to be able to use the full width */
     .video {
         width: 100%;
 
     }
-
+/* footer becomes a single collumn */
     .footer {
         padding: 20px;
         grid-template-columns: 1fr;
         row-gap: 2px;
+    }
+}
+
+/* hide the hamburger on desktop display */
+.hamburger-menu { display: none; }
+
+@media (max-width: 768px) {
+    /*
+    make the hamburger  button visible, removed background borders
+     */
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 26px;
+        color: #ffffff;
+    }
+
+/*
+ when the nav-open clas is set to the header ( implemented in JS), show the navi links
+ */
+    .homepage-menu.nav-open .nav-panel {
+        display: flex;
     }
 }

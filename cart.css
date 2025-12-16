@@ -1,9 +1,13 @@
-
+/*
+ making all elements to use border box so the padding and borders are included in width or height
+ */
 *
 {
     box-sizing: border-box;
 }
+/* style for the whole page
 
+ */
 html, body {
     margin: 0;
     padding: 0;
@@ -12,13 +16,13 @@ html, body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
 }
-
+/* using flex collumn on body so header  main content and footer appear vertically */
 body {
     display: flex;
     flex-direction: column;
 }
 
-/* Header */
+/* Header and navigation bar */
 .cart-menu {
     background-color: #BE1622;
     color: #ffffff;
@@ -28,31 +32,41 @@ body {
     justify-content: space-between;
     align-items: center;
 }
-
+/*
+ navigation links , removed the underline and changed color to white
+ */
 .cart-menu a {
     color: #ffffff;
     text-decoration: none;
 }
-
+/* logo size */
 .img-logo {
     width: 180px;
 }
-
+/*
+for logo img , title and menu horizontal gap
+ */
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
+/*
+gap between nav links
+ */
 .nav-panel {
     display: flex;
     gap: 20px;
 }
-
+/*
+added some vertical padding to nav links to be easier to click
+ */
 .nav-panel a {
     padding: 20px 0;
 }
-
+/*
+on hover i added a bottom border line to appear and the current page also has a bottom border gold color
+ */
 .nav-panel a:hover,
 .nav-panel .current {
     border-bottom: 3px solid #F2BE1A;
@@ -60,7 +74,7 @@ body {
 
 
 
-/* Footer  */
+/* Footer, dark blue background color, grid display to be in 3 equal columns */
 .footer {
     background-color: #34516C;
     color: #ffffff;
@@ -70,13 +84,15 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 45px;
 }
-
+/* footer section titles */
 .footer h4 {
     color: #ffffff;
     margin-bottom: 16px;
     font-size: 20px;
 }
-
+/*
+ footer text and link
+ */
 .footer p,
 .footer a {
     font-size: 14px;
@@ -89,19 +105,23 @@ body {
 
 /* Responsive  */
 @media (max-width: 768px) {
-
+/* make content vertical */
     .cart-menu {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-
+    /*
+        hide nav links , they will be visible by opening hamburger menu
+         */
     .nav-panel {
         margin-top: 8px;
+        display: none;
+        flex-direction: column;
     }
 
 
-
+    /* footer becomes a single collumn */
     .footer {
         padding: 20px;
         grid-template-columns: 1fr;
@@ -109,7 +129,7 @@ body {
     }
 }
 
-
+/* title of cart page gold colored*/
 .title {
 
     margin: 20px auto;
@@ -118,7 +138,7 @@ body {
     font-size: 2rem;
 
 }
-
+/* small text under title */
 .welcome-text{
     max-width: 800px;
     margin: 0 auto 1rem;
@@ -126,56 +146,79 @@ body {
     font-weight: bold;
 }
 
-
+/* cart table layout */
 .cart-table {
     max-width: 800px;
     margin: 0 auto;
 }
 
-
+/* cart titles for each row */
 .cart-titles,
 .cart-row {
     display: grid;
-    grid-template-columns: 80px 1fr 50px;
+    grid-template-columns: 80px 1fr 100px;
     align-items: center;
     column-gap: 1.5rem;
 }
-
+/* headers for quantity , product, price */
 .cart-titles {
     font-size: 1.2rem;
     font-weight: bold;
     margin-bottom: 0.75rem;
 }
 
-
+/* each product row padding space between rows */
 .cart-row {
     padding: 1rem 0;
 }
 
-/* Quantity column */
+/* quantity styling */
 .quantity {
     font-size: 1.2rem;
     font-weight: bold;
     text-align: center;
 }
 
-
+/* element that contains image and name */
 .cart-product {
     display: flex;
     align-items: center;
     gap: 3rem;
     font-size: 1.2rem;
 }
-
+/* image of product */
 .cart-image {
     width: 70px;
     height: 70px;
 
 }
 
-
+/* style for price of product */
 .product-price {
     font-size: 1.2rem;
+    text-align: left;
     font-weight: bold;
 
+}
+/* hide the hamburger on desktop display */
+.hamburger-menu { display: none; }
+
+@media (max-width: 768px) {
+    /*
+make the hamburger  button visible, removed background borders
+*/
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 26px;
+        color: #ffffff;
+    }
+
+    /*
+     when the nav-open clas is set to the header ( implemented in JS), show the navi links
+     */
+    .cart-menu.nav-open .nav-panel {
+        display: flex;
+    }
 }

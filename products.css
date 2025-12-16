@@ -1,9 +1,13 @@
-
+/*
+ making all elements to use border box so the padding and borders are included in width or height
+ */
 *
 {
     box-sizing: border-box;
 }
+/* style for the whole page
 
+ */
 html, body {
     margin: 0;
     padding: 0;
@@ -12,52 +16,62 @@ html, body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
 }
-
+/* using flex collumn on body so header  main content and footer appear vertically */
 body {
     display: flex;
     flex-direction: column;
 }
 
-/* Header */
+/* Header and navigation bar */
 .products-menu {
-    background-color: #BE1622;
+    background-color: #BE1622; /* uclan red color */
     color: #ffffff;
     width: 100%;
     padding: 16px 20px;
-    display: flex;
+    display: flex; /* elements to be displayed side by side */
     justify-content: space-between;
     align-items: center;
 }
-
+/*
+ navigation links , removed the underline and changed color to white
+ */
 .products-menu a {
     color: #ffffff;
     text-decoration: none;
 }
-
+/* logo size */
 .img-logo {
     width: 180px;
 }
-
+/*
+for logo img , title and menu horizontal gap
+ */
 .logo {
     display: flex;
     align-items: center;
     gap: 15px;
 }
-
+/*
+gap between nav links
+ */
 .nav-panel {
     display: flex;
     gap: 20px;
 }
-
+/*
+added some vertical padding to nav links to be easier to click
+ */
 .nav-panel a {
     padding: 20px 0;
 }
-
+/*
+on hover i added a bottom border line to appear and the current page also has a bottom border gold color
+ */
 .nav-panel a:hover,
 .nav-panel .current {
     border-bottom: 3px solid #F2BE1A;
 }
-
+/* centering the product title */
 .title{
     justify-content: center;
     display: flex;
@@ -65,7 +79,7 @@ body {
 
 }
 
-
+/* on top button fixed on the left of the page */
 #go-to-top {
     position: fixed;
     left: 60px;
@@ -77,20 +91,23 @@ body {
     color: #ffffff;
     font-size: 1.2rem;
     cursor: pointer;
-    display: none;
+    display: none; /* hidden until scroll */
 
 }
-
+/* hover color change */
 #go-to-top:hover {
     background-color: #BE1622;
 }
+/*
+filter button container
+ */
 .product-categories {
     max-width: 360px;
     margin: 0 auto 20px;
     display: flex;
     gap: 20px;
 }
-
+/* style for filter buttons */
 .category{
     padding: 3px 10px;
     font-size: 1rem;
@@ -98,10 +115,11 @@ body {
     cursor: pointer;
     border-radius: 5px;
 }
+/* hover color change */
 .category:hover{
     background-color: #F2BE1A;
 }
-
+/* style for selected filter button */
 .current-category{
     border-radius: 5px;
     padding: 3px 10px;
@@ -110,18 +128,18 @@ body {
     background-color: #0099d2;
 }
 
-
+/* grid that contains all products */
 #product-list {
 
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(3,1fr); /* 3 columns */
     gap: 2rem;
     padding: 2rem ;
 }
 
-
+/* card of each product style */
 .productCard {
     max-width: 700px;
     margin: 0 auto;
@@ -131,12 +149,12 @@ body {
     flex-direction: column;
 
 }
-
+/* removing underline from more link */
 .product-more{
     text-decoration: none;
 }
 
-
+/* image of product */
 .product-image {
     display: block;
     width: 100%;
@@ -145,13 +163,13 @@ body {
     border: 1px solid #C7CBDA;
 }
 
-
+/* product name colored gold */
 .product-name {
     font-size: 2rem;
     color: #F2BE1A;
     margin: 0.75rem 1rem 0.25rem;
 }
-
+/* description text */
 .product-description {
     font-size: 1rem;
     color: #000000;
@@ -159,15 +177,15 @@ body {
     margin-right: 10px;
 }
 
-
+/* style for price of product */
 .product-price {
     font-size: 1rem;
     font-weight: bold;
     margin-left: 20px
 }
-
+/* the buy button at the bottom of product card */
 .productCard button {
-    align-self: flex-start;
+    align-self: flex-start; /* align button to the left */
     margin-bottom : 20px;
     margin-left : 20px;
     padding: 5px 10px;
@@ -176,6 +194,7 @@ body {
     background: #C7CBDA;
     cursor: pointer;
 }
+/* hover color change */
 .productCard button:hover {
     background: #BE1622;
 }
@@ -188,17 +207,17 @@ body {
     color: #ffffff;
     width: 100%;
     padding: 20px 40px;
-    display: grid;
+    display: grid; /* 3 columns */
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 45px;
 }
-
+/* titles of footer */
 .footer h4 {
     color: #ffffff;
     margin-bottom: 16px;
     font-size: 20px;
 }
-
+/* style for footer text and link */
 .footer p,
 .footer a {
     font-size: 14px;
@@ -209,32 +228,39 @@ body {
     line-height: 1.2;
 }
 
-/* Responsive  */
+/* for responsive screens  */
 @media (max-width: 768px) {
-
+    /*
+    make logo and navigation to go vertical
+     */
     .products-menu {
         flex-direction: column;
         align-items: flex-start;
         gap: 10px;
     }
-
+    /*
+    hide nav links , they will be visible by opening hamburger menu
+     */
     .nav-panel {
         margin-top: 8px;
+        display: none;
+        flex-direction: column;
     }
 
 
-
+    /* footer becomes a single collumn */
     .footer {
         padding: 20px;
         grid-template-columns: 1fr;
         row-gap: 2px;
     }
+    /* reducing font size */
     .title{
         font-size: 1.2rem;
 
 
     }
-
+/* product grid autofits each column to 200px , 3 products per row */
     #product-list {
 
 
@@ -242,4 +268,26 @@ body {
 
     }
 
+}
+/* hide the hamburger on desktop display */
+.hamburger-menu { display: none; }
+
+@media (max-width: 768px) {
+    /*
+ make the hamburger  button visible, removed background borders
+  */
+    .hamburger-menu {
+        display: block;
+        background: none;
+        border: none;
+        font-size: 26px;
+        color: #ffffff;
+    }
+
+    /*
+     when the nav-open clas is set to the header ( implemented in JS), show the navi links
+     */
+    .products-menu.nav-open .nav-panel {
+        display: flex;
+    }
 }
