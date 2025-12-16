@@ -2,6 +2,9 @@ Description : This project is an Assignment for C0148 Web Technologies. It's a r
 UCLan Student Shop. User can check out about UClan at homepage through 2 videos. Then user can see the eshop,
 with hoodies, jumpers and T-shirts, can view the details in the Item Page and add products to the cart.
 
+
+github Repository:  https://github.com/ageorgiou13/CO1418-Assignment
+Live page on github: https://ageorgiou13.github.io/CO1418-Assignment/
 Files:
 index.html - Homepage including welcome text and two embedded videos
 products.html - Products page with all products and filters.
